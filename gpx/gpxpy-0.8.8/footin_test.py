@@ -4,7 +4,7 @@ import gpxpy.gpx
 # Parsing an existing file:
 # -------------------------
 
-gpx_file = open('/data/2016-01-07-1354.gpx', 'r')
+gpx_file = open('data/2016-01-07-1354.gpx', 'r')
 
 gpx = gpxpy.parse(gpx_file)
 
