@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils import timezone
+import datetime
 from django.contrib.gis.db import models  #GeoDjango Model
 
 # Create your models here.
@@ -15,7 +16,8 @@ class Question(models.Model):
 		return self.question_text
 
 	def was_published_recently(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)		
+		now = timezone.now()
+		return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 @python_2_unicode_compatible #only if you need to support Python 2
 class Choice(models.Model):
